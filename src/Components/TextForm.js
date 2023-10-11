@@ -8,18 +8,21 @@ export default function TextForm(props) {
         event.preventDefault();  // Prevent the default form submission behavior
         let newText = text.toUpperCase();
         setText(newText);
+        props.showAlert("Converted to UpperCase", "success");
     }
 
     const handleLoClick = (event) => {
         event.preventDefault();
         let lowerText = text.toLowerCase();
         setText(lowerText);
+        props.showAlert("Converted to LowerCase",  "success");
     }
 
     const handleClearClick = (event) => {
         event.preventDefault();
         let clearText = "";
         setText(clearText);
+        props.showAlert("Text Clear", "danger");
     }
     
     const handleonChange = (event) => {
@@ -31,12 +34,14 @@ export default function TextForm(props) {
         let copyText = document.getElementById("myBox");
         copyText.select();
         navigator.clipboard.writeText(copyText.value);
+        props.showAlert("Text Copy to Clipboard", "success");
     }
 
     const handleExtraSpaces = (event) => {
         event.preventDefault();
         let removeSpaces = text.split(/[  ]+/);
         setText(removeSpaces.join(" "));
+        props.showAlert("Extra Space Removed Sucessfully", "success");
     }
     return (
         <>
