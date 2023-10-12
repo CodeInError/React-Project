@@ -36,12 +36,14 @@ function App() {
   return (
     <>
     <Router>
-      <Navbar title="TextUtils" aboutText="About TextUtils" mode={mode} enableDarkMode ={enableDarkMode}/>
+      <Navbar title="ProTextGenerator" aboutText="About" mode={mode} enableDarkMode ={enableDarkMode}/>
       <Alert alert={alert}/>
       <div className="container my-3">
         <Routes>
-          <Route exact path="/about" element={<About />} />
-          <Route exact path="/" element={<TextForm showAlert= {showAlert} heading="Enter The Text To Analyze Below"  mode={mode} />} />
+          <Route exact path="/about" element=
+            {<About mode={mode} />} />
+          <Route exact path="/" element={
+          <TextForm showAlert= {showAlert} heading="Try ProTextGenerator - Word Counter, Character Counter, Remove extra spaces "  mode={mode} />} />
         </Routes>
       </div>
     </Router>
